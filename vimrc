@@ -36,7 +36,6 @@ set mouse+=a
 " set color 256
 set t_Co=256
 
-
 " diy key
 let mapleader = ","
 " set tagbar key
@@ -45,9 +44,24 @@ nnoremap <C-b> :TagbarToggle<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-noremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+" set the double search about easymotion
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+" set the n-character search motion (replace the traditional search)
+map / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
 
-
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
 call plug#begin()
 " airline plug for the buttom line more intuitive
@@ -55,6 +69,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " tag bar which is a tool to show structure of the file you editing
 Plug 'preservim/tagbar'
+" NerdTree is a plug that show the list of file in tabs and otherthings
 Plug 'preservim/nerdtree'
 " let index show the information about files you recently edited
 Plug 'mhinz/vim-startify'
