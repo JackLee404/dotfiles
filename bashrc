@@ -118,3 +118,5 @@ fi
 
 # My alias about c++
 alias mc="g++ -Wall -Werror -std=c++17"
+# an alias for contest
+alias cf ="~/Contest/cf/cf"

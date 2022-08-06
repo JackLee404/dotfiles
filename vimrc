@@ -4,17 +4,27 @@
 
 " turn on smart tab line in vim
 let g:airline#extensions#tabline#enabled = 1
-
+" let the integration with airline
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#nerdtree_statusline = 1
 "highlight the line you editing but only active line
 "augroup CursorLineOnlyInActiveWindow
 "    autocmd!
-"    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+"    autocmd vimenter,winenter,bufwinenter * setlocal cursorline
 "    autocmd WinLeave * setlocal nocursorline
 "augroup END
 
+
+
+filetype plugin indent on
+" set color 256
+set t_Co=256
 " turn syntax on
-syntax on
-" set not compatility for vi version
+syntax enable
+" set solarized color
+set background=dark
+colorscheme solarized
+"set not compatility for vi version
 set nocompatible
 " set ignore case for search
 " set ignorecase
@@ -23,9 +33,15 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+" set auto indent
+set autoindent
 " show line number and other things
 set number
-set relativenumber
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set rnu
+    autocmd BufLeave,FocusLost,InsertEnter * set nornu
+augroup END
 " set utf8 encode for vim-devicons
 set encoding=UTF-8
 " make backspace in blank line more intuitive, because you don't need to trans
@@ -33,11 +49,19 @@ set encoding=UTF-8
 set backspace=indent,eol,start
 " set mouse (scorlling, selection, etc)
 set mouse+=a
-" set color 256
-set t_Co=256
+" set filetype on for commenter plug
+filetype plugin on
+" make the cursor now smallest to last 5
+set scrolloff=5
+" disable the default vim start up message
+set shortmess+=I
+" always show the status line at the buttom
+set laststatus=2
 
 " diy key
 let mapleader = ","
+" set leader key for easy motion
+map <Leader> <Plug>(easymotion-prefix)
 " set tagbar key
 nnoremap <C-b> :TagbarToggle<CR>
 " set NerdTree key
@@ -60,6 +84,10 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
+" set the tabline key for moving
+nnoremap <C-z> :bprevious<CR> " also bp
+nnoremap <C-x> :bnext<CR> " also bn
+
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
@@ -79,4 +107,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ryanoasis/vim-devicons'
 " moving faster than ever using match (high level for the f command and F etc)
 Plug 'easymotion/vim-easymotion'
+" Language Client
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+" (Optional) Multi-entry selection UI.
+Plug 'junegunn/fzf'
+" for commnter
+Plug 'preservim/nerdcommenter'
 call plug#end()

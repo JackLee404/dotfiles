@@ -109,6 +109,10 @@ source $ZSH/oh-my-zsh.sh
 alias mc="g++ -Wall -Werror -std=c++17"
 # delete the character which is '%' end of the endline.
 export PROMPT_EOL_MARK=''
+# set porxy automatically
+export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_proxy=socks5://127.0.0.1:33211
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# alias a name for contest
+alias cf="~/Contest/cf/cf"
