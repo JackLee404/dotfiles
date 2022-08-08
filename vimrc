@@ -7,6 +7,10 @@ let g:airline#extensions#tabline#enabled = 1
 " let the integration with airline
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#nerdtree_statusline = 1
+" let g:airline_theme = 'purify'
+" for the key bind of <M-e> etc for plug auto-pair
+" let g:AutoPairsShortcutToggle = '<C-q>'
+
 "highlight the line you editing but only active line
 "augroup CursorLineOnlyInActiveWindow
 "    autocmd!
@@ -16,18 +20,17 @@ let g:airline#extensions#nerdtree_statusline = 1
 
 
 
-filetype plugin indent on
+"filetype plugin indent on
 " set color 256
 set t_Co=256
 " turn syntax on
 syntax enable
-" set solarized color
-set background=dark
-colorscheme solarized
 "set not compatility for vi version
 set nocompatible
 " set ignore case for search
 " set ignorecase
+" set lastline
+set laststatus=2
 " use 4 spaces instead of tabs during formatting
 set expandtab
 set tabstop=4
@@ -46,7 +49,7 @@ augroup END
 set encoding=UTF-8
 " make backspace in blank line more intuitive, because you don't need to trans
 " to insert mode to delete a line
-set backspace=indent,eol,start
+" set backspace=indent,eol,start
 " set mouse (scorlling, selection, etc)
 set mouse+=a
 " set filetype on for commenter plug
@@ -57,6 +60,12 @@ set scrolloff=5
 set shortmess+=I
 " always show the status line at the buttom
 set laststatus=2
+" set nerdtree right
+let g:NERDTreeWinPos = "right"
+" set indent
+set foldmethod=manual
+set foldlevelstart=99
+
 
 " diy key
 let mapleader = ","
@@ -89,7 +98,9 @@ nnoremap <C-z> :bprevious<CR> " also bp
 nnoremap <C-x> :bnext<CR> " also bn
 
 
+
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
 
 call plug#begin()
 " airline plug for the buttom line more intuitive
@@ -116,4 +127,19 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'junegunn/fzf'
 " for commnter
 Plug 'preservim/nerdcommenter'
+" auto complete pairs
+Plug 'jiangmiao/auto-pairs'
+" collection of language packs for vim
+Plug 'sheerun/vim-polyglot'
+" awesome vim colorscheme
+Plug 'rafi/awesome-vim-colorschemes'
+" set up ALE
+Plug 'dense-analysis/ale'
+" set nerdtree-syntax-highlight
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
+
+
+" set solarized color
+set background=light
+colorscheme purify
