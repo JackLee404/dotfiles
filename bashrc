@@ -108,6 +108,7 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
+
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -120,3 +121,7 @@ fi
 alias mc="g++ -Wall -Werror -std=c++17"
 # an alias for contest
 alias cf ="~/Contest/cf/cf"
+# settings for jupyter-notebook --no-browser
+alias jupyter-notebook="~/.local/bin/jupyter-notebook"
+# setting the chrome as default 
+export BROWSER='/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'

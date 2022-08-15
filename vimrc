@@ -18,9 +18,33 @@ let g:airline#extensions#nerdtree_statusline = 1
 "    autocmd WinLeave * setlocal nocursorline
 "augroup END
 
+" settings for ALE
+let g:ale_completion_enabled  = 1
+" let b:ale_linters = ['flake8', 'pylint', 'clangd', 'cppcheck']
+"let g:ale_fixers = {
+"\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+"\   'javascript': ['eslint'],
+    "'python': ['flake8', 'pylint']
+    "'c++': ['clangd', 'cppcheck']
+"}
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'c++': ['clangd'],
+\   'python': ['flake8', 'pylint'],
+\}
+let b:ale_fixers =  ['autopep8', 'yapf', 'clangd']
+let b:ale_warn_about_trailing_whitespace = 0
+let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
+let g:ale_floating_window_border = repeat([''], 8)
+let g:airline#extensions#ale#enabled = 1
 
 
-"filetype plugin indent on
+
+" set cursor
+"let &t_SI = "\e[6 q"
+"let &t_EI = "\e[2 q"
+" set filetype
+filetype plugin indent on
 " set color 256
 set t_Co=256
 " turn syntax on
@@ -38,6 +62,9 @@ set shiftwidth=4
 set softtabstop=4
 " set auto indent
 set autoindent
+" show command
+set showcmd
+set wildmenu
 " show line number and other things
 set number
 augroup numbertoggle
@@ -61,7 +88,7 @@ set shortmess+=I
 " always show the status line at the buttom
 set laststatus=2
 " set nerdtree right
-let g:NERDTreeWinPos = "right"
+" let g:NERDTreeWinPos = "right"
 " set indent
 set foldmethod=manual
 set foldlevelstart=99
@@ -138,6 +165,7 @@ Plug 'dense-analysis/ale'
 " set nerdtree-syntax-highlight
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
+
 
 
 " set solarized color
