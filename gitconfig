@@ -3,3 +3,6 @@
 	email = deepsea404@hotmail.com
 [core]
 	editor = vim
+[alias]
+	unstage = reset HEAD --
+	last = log -1 HEAD

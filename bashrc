@@ -39,7 +39,6 @@ fi
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
-
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
@@ -120,8 +119,8 @@ fi
 # My alias about c++
 alias mc="g++ -Wall -Werror -std=c++17"
 # an alias for contest
-alias cf ="~/Contest/cf/cf"
+# alias cf ="~/Contest/cf/cf"
 # settings for jupyter-notebook --no-browser
-alias jupyter-notebook="~/.local/bin/jupyter-notebook"
+# alias jupyter-notebook="~/.local/bin/jupyter-notebook"
 # setting the chrome as default 
 export BROWSER='/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'

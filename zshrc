@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias mc="g++ -Wall -Werror -std=c++17"
+# alias for tmux to turn on 256 colors
+#alias tmux='TERM=screen-256color-bce tmux'
 # delete the character which is '%' end of the endline.
 export PROMPT_EOL_MARK=''
 # set porxy automatically
@@ -116,3 +118,12 @@ export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # alias a name for contest
 alias cf="~/Contest/cf/cf"
+# set colors
+TERM=xterm-256color
+# sytax higlht
+#source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#plugins=(
+  #git
+  #zsh-syntax-highlighting
+#)

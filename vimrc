@@ -32,7 +32,7 @@ let g:ale_linters = {
 \   'c++': ['clangd'],
 \   'python': ['flake8', 'pylint'],
 \}
-let b:ale_fixers =  ['autopep8', 'yapf', 'clangd']
+let b:ale_fixers =  ['autopep8', 'yapf', 'autoflake']
 let b:ale_warn_about_trailing_whitespace = 0
 let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
 let g:ale_floating_window_border = repeat([''], 8)
@@ -92,6 +92,14 @@ set laststatus=2
 " set indent
 set foldmethod=manual
 set foldlevelstart=99
+
+" auto compile and run when using c++ file
+if &filetype ==# 'cpp'
+    nnoremap <silent> <C-s> :w<CR>:!g++ % && ./a.out<CR>:!rm a.out<CR>
+endif
+
+
+
 
 
 " diy key
@@ -164,6 +172,8 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'dense-analysis/ale'
 " set nerdtree-syntax-highlight
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" set tmux plugin
+Plug 'edkolev/tmuxline.vim'
 call plug#end()
 
 
