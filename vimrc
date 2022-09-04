@@ -19,7 +19,7 @@ let g:airline#extensions#nerdtree_statusline = 1
 "augroup END
 
 " settings for ALE
-let g:ale_completion_enabled  = 1
+let g:ale_completion_enabled = 1
 " let b:ale_linters = ['flake8', 'pylint', 'clangd', 'cppcheck']
 "let g:ale_fixers = {
 "\   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -32,11 +32,23 @@ let g:ale_linters = {
 \   'c++': ['clangd'],
 \   'python': ['flake8', 'pylint'],
 \}
-let b:ale_fixers =  ['autopep8', 'yapf', 'autoflake']
+let b:ale_fixers =  ['autopep8', 'yapf', 'autoflake', 'google_java_format']
 let b:ale_warn_about_trailing_whitespace = 0
 let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
 let g:ale_floating_window_border = repeat([''], 8)
 let g:airline#extensions#ale#enabled = 1
+" ALE for Java
+let g:ale_java_eclipselsp_path = '$HOME/.vim/support/jdt-lsp'
+let g:ale_java_eclipselsp_config_path = '$HOME/.vim/support/jdt-lsp'
+let g:ale_java_eclipse_config_path = '$HOME/.vim/support/config_linux'
+"let the tmux-line preset
+" let g:tmuxline_preset = 'tmux'
+" tmuxline theme custom
+" let g:tmuxline_theme = 'iceberg'
+" set for deopltete
+" let g:deoplete#enable_at_startup = 1
+let g:AutoPairsShortcutFastWrap = '<C-q>'
+
 
 
 
@@ -114,8 +126,8 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " set the double search about easymotion
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
+nmap ; <Plug>(easymotion-s2)
+nmap ' <Plug>(easymotion-t2)
 " set the n-character search motion (replace the traditional search)
 map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -135,6 +147,7 @@ nnoremap <C-x> :bnext<CR> " also bn
 
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
 
 
 call plug#begin()
@@ -172,10 +185,20 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'dense-analysis/ale'
 " set nerdtree-syntax-highlight
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" set tmux plugin
-Plug 'edkolev/tmuxline.vim'
+" set auto completion about deoplete
+"if has('nvim')
+  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+  "Plug 'Shougo/deoplete.nvim'
+  "Plug 'roxma/nvim-yarp'
+  "Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+"Plug 'roxma/vim-hug-neovim-rpc'
+"Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
+"Plug 'litom501/vim-foobar'
+"set tmux plugin
+"Plug 'edkolev/tmuxline.vim'
 call plug#end()
-
 
 
 " set solarized color

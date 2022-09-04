@@ -124,3 +124,26 @@ alias mc="g++ -Wall -Werror -std=c++17"
 # alias jupyter-notebook="~/.local/bin/jupyter-notebook"
 # setting the chrome as default 
 export BROWSER='/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'
+#color
+# add colors to 'ls'
+alias ls='ls -GF'
+# add colors to 'grep' and relatives  (When not piped or redirected).
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/bin/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/bin/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/bin/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/bin/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
